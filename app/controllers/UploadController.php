@@ -3,32 +3,32 @@
 
 class UploadController
 {
-    private $result = "";
+    private static $result = "";
 
-    public function nrc()
+    public static function nrc()
     {
         $ata = new AtaNRC();
-        $this->result = $this->salvar($ata);
-        $this->listar($ata);
+        self::$result = self::salvar($ata);
+        self::listar($ata);
     }
 
-    public function feitos()
+    public static function feitos()
     {
         $ata = new AtaFeitos();
-        $this->result = $this->salvar($ata);
-        $this->listar($ata);
+        self::$result = self::salvar($ata);
+        self::listar($ata);
     }
 
-    private function salvar(Ata $ata)
+    private static function salvar(Ata $ata)
     {
         return $ata->salvar();
     }
 
-    private function listar(Ata $ata)
+    private static function listar(Ata $ata)
     {
         $area = $ata->getArea();
         $atas = $ata->listar();
-        $result = $this->result;
+        $result = self::$result;
 
         return view('layout', compact('area', 'atas', 'result'));
     }

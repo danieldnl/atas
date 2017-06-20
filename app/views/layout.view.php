@@ -11,7 +11,7 @@
     <h2>Atas de Reuniões - <?= $area ?></h2>
     <hr>
     <div class="well col-md-4 pull-right">
-        <form action="<?= Request::uri() ?>" method="POST" enctype="multipart/form-data">
+        <form action="upload-<?= strtolower($area) ?>.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Arquivar nova Ata</label>
                 <input type="hidden" name="MAX_FILE_SIZE" value="5000000">

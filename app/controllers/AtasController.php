@@ -4,27 +4,22 @@
 class AtasController
 {
 
-    public function nrc()
+    public static function nrc()
     {
-        $this->listar(new AtaNRC());
+        self::listar(new AtaNRC());
     }
 
-    public function feitos()
+    public static function feitos()
     {
-        $this->listar(new AtaFeitos());
+        self::listar(new AtaFeitos());
     }
 
-    private function listar(Ata $ata)
+    private static function listar(Ata $ata)
     {
         $area = $ata->getArea();
         $atas = $ata->listar();
 
         return view('layout', compact('area', 'atas'));
-    }
-
-    private function salvar(Ata $ata)
-    {
-        $ata->salvar();
     }
 
 }
